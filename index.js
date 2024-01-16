@@ -1,18 +1,28 @@
 function isPalindrome(word) {
-  // Write your algorithm here
+  for (let startIndex = 0; startIndex < word.length / 2; startIndex++) {
+    const endIndex = word.length - 1 - startIndex;
+    if (word[startIndex] !== word[endIndex]) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
-/* 
-  Add your pseudocode here
+/*
+  Pseudocode:
+  - Iterate from the beginning of the string to the middle
+  - For each letter, compare it with the corresponding letter from the end
+  - If any pair of letters doesn't match, return false
+  - If the loop completes without returning, all letters match, so return true
 */
 
 /*
-  Add written explanation of your solution here
+  Solution Explanation:
+  The function iterates over the first half of the input string, comparing each letter with its corresponding letter from the end of the string. If any pair of letters doesn't match, the function returns false, indicating that the input is not a palindrome. If the loop completes without returning, it means all letters match, and the function returns true, indicating that the input is a palindrome.
 */
 
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
-  // add your own custom tests in here
   console.log("Expecting: true");
   console.log("=>", isPalindrome("racecar"));
 
